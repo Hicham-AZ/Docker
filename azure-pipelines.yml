@@ -10,7 +10,7 @@ variables:
   # Service Connection vers ton Nexus Docker Registry
   dockerRegistryServiceConnection: 'Nexus-Docker-ServiceConnection'
   # Repository dans Nexus (docker-privet)
-  imageRepository: 'nexus.devops.cloud:5001/node-app'
+  imageRepository: 'node-app'
   dockerfilePath: 'Dockerfile'
   tag: '$(Build.BuildId)'
 
