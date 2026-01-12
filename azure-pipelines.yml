@@ -7,14 +7,16 @@ pool:
     - Agent.Name -equals vagrant-azdo-agent-2
 
 variables:
-  dockerRegistryServiceConnection: 'DockerHub-Service-Connection'
-  imageRepository: 'hicham00/my-app'
+  # Service Connection vers ton Nexus Docker Registry
+  dockerRegistryServiceConnection: 'Nexus-Docker-ServiceConnection'
+  # Repository dans Nexus (docker-privet)
+  imageRepository: 'nexus.devops.cloud:5001/node-app'
   dockerfilePath: 'Dockerfile'
   tag: '$(Build.BuildId)'
 
 steps:
 - task: Docker@2
-  displayName: Build and Push Docker Image to Docker Hub
+  displayName: Build and Push Docker Image to Nexus
   inputs:
     command: buildAndPush
     repository: $(imageRepository)
